@@ -218,7 +218,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 5,
                 ),
                 Expanded(
                   child: Row(
@@ -246,21 +246,145 @@ class _HomePageState extends State<HomePage> {
       );
     }
 
+    Widget drawerHeader() {
+      return Container(
+        width: MediaQuery.of(context).size.width * 0.8,
+        height: 200,
+        padding: EdgeInsets.all(
+          12,
+        ),
+        decoration: BoxDecoration(
+          color: primaryColor,
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(
+              18,
+            ),
+          ),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Container(
+              width: 55,
+              height: 55,
+              decoration: BoxDecoration(
+                color: whiteColor,
+                shape: BoxShape.circle,
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              'Welcome [Guest]',
+              style: whiteTextStyle.copyWith(
+                fontSize: 16,
+              ),
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(
+                  'v.1.0',
+                  style: whiteTextStyle.copyWith(
+                    fontWeight: light,
+                    fontSize: 12,
+                  ),
+                )
+              ],
+            )
+          ],
+        ),
+      );
+    }
+
+    Widget menu() {
+      return Column(
+        children: [
+          MenuWidget(
+            onPressed: () {},
+            text: 'Home',
+            color: primaryColor,
+          ),
+          MenuWidget(
+            onPressed: () {},
+            text: 'M-Tix Registration',
+            color: yellowColor,
+          ),
+          MenuWidget(
+            onPressed: () {},
+            text: 'Favorite Theater',
+            color: primaryColor,
+          ),
+          MenuWidget(
+            onPressed: () {},
+            text: 'Imax Theater',
+            color: primaryColor,
+          ),
+          MenuWidget(
+            onPressed: () {},
+            text: 'Term of Service/disclaimer',
+            color: primaryColor,
+          ),
+          MenuWidget(
+            onPressed: () {},
+            text: 'FAQ',
+            color: primaryColor,
+          ),
+          MenuWidget(
+            onPressed: () {},
+            text: 'What\'s New',
+            color: primaryColor,
+          ),
+          MenuWidget(
+            onPressed: () {},
+            text: 'Privacy Policy',
+            color: primaryColor,
+          ),
+          MenuWidget(
+            onPressed: () {},
+            text: 'Contact Us',
+            color: primaryColor,
+          ),
+        ],
+      );
+    }
+
+    Widget drawer() {
+      return Container(
+        width: MediaQuery.of(context).size.width * 0.8,
+        height: MediaQuery.of(context).size.height,
+        decoration: BoxDecoration(
+          color: whiteColor,
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(
+              18,
+            ),
+            bottomRight: Radius.circular(
+              18,
+            ),
+          ),
+        ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              //!Header
+              drawerHeader(),
+              //!Menu
+              menu(),
+            ],
+          ),
+        ),
+      );
+    }
+
     return Scaffold(
       appBar: appbar(),
-      drawer: Container(
-        width: MediaQuery.of(context).size.width * 0.7,
-        decoration: BoxDecoration(
-            color: whiteColor,
-            borderRadius: BorderRadius.only(
-              topRight: Radius.circular(
-                12,
-              ),
-              bottomRight: Radius.circular(
-                12,
-              ),
-            )),
-      ),
+      drawer: drawer(),
       backgroundColor: bgColor,
       body: SingleChildScrollView(
         child: Column(

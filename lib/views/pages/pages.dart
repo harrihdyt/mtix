@@ -8,3 +8,7 @@ import 'package:tixid/views/widgets/widgets.dart';
 
 part 'home_page.dart';
 part 'main_page.dart';
+part 'food.dart';
+part 'profile.dart';
+part 'upcoming.dart';
+part 'theater.dart';
